@@ -1,0 +1,41 @@
+openapi: 3.0.3
+
+info:
+  title: "VST License Manager"
+  version: 0.0.1
+
+paths:
+  /api/v1/licenses/verify:
+    post:
+      operationId: verifyLicense
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseRequest'
+      responses:
+        '200':
+          description: "Verification complete"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseResponse'
+
+components:
+  schemas:
+    LicenseRequest:
+      type: object
+      properties:
+        pluginName:
+          type: string
+        licenseKey:
+          type: string
+        currentVersion:
+          type: string
+    LicenseResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        updateAvailable:
+          type: boolean

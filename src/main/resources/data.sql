@@ -1,0 +1,1 @@
+INSERT INTO licenses (plugin_name, license_key) VALUES ('Pitchblade', '1234-5678');
